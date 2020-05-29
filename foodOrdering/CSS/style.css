@@ -1,0 +1,191 @@
+html,body{
+    margin:0px;
+    padding:0px;
+    width:100%;
+    
+    overflow-x:hidden;
+}
+html{
+    scroll-behavior: smooth;
+}
+#navbar{
+    display:flex;
+    align-items:center;
+    font-family: 'Baloo Bhai 2', cursive;
+    position:fixed;
+    width:100%;
+    top:0px;}
+#navbar::before{
+    background-color: black;
+    position:absolute;
+    height:100%;
+    width:100%;
+    opacity:0.8;
+    z-index:-1;
+    top:0px;
+    left:0px;
+    content:"";
+}
+#logo{
+    height:50px;
+    width:40px;
+    margin:3px 3px;
+    border-radius:35px;
+}
+#navbar ul {
+    display:flex;
+    position:relative;
+    
+}
+#navbar ul li a{
+    text-decoration:none;
+    display:block;
+    padding:2px 30px;
+    color:white;
+    
+}
+#navbar ul li {
+    list-style:none;
+    font-size:1.5 rem;
+    
+}
+#navbar ul li a:hover{
+    color:black;
+    background-color:white;
+    border-radius:15px;
+}
+
+#section1{
+display:flex;
+flex-direction:column;
+padding:10px 200px;
+height:180px;
+align-items:center;
+justify-content: center;
+}
+#section1::before{
+    content:"";
+    z-index:-1;
+    height:320px;
+    width:100%;
+    opacity:0.85;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background:url('https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466__340.jpg') no-repeat center center/cover;
+}
+#section1 h1{
+    font-family: 'Oswald', sans-serif;
+    font-size:3.5rem;
+    color :white;
+    padding:3px 2px;
+}
+#section1 p{
+    font-size:1.5rem;
+    color:white;
+    padding:3px 2px;
+    font-family: 'Oswald', sans-serif;
+}
+#btn{
+    border:1px white solid;
+    background-color: brown;
+    color:white;
+    border-radius:20px;
+    padding:7px 20px;
+    cursor:pointer;
+    font-size:1.2rem;
+}
+#section2 .services{
+    display:flex;
+    margin:10px;
+}
+#section2 h1{
+font-size:2.5rem;
+text-align:center;
+}
+#section2 p{
+    padding:2px 4px;
+}
+#section2 .services .box{
+    margin:5px;
+    border-radius:23px;
+border:1px solid brown;
+padding:3px 2px;
+background-color: rgb(233, 220, 220);
+}
+#section2 h3{
+    font-size:1.7rem;
+    padding:7px 2px;
+    text-align:center;
+}
+#section2 .services .box img{
+    height:150px;
+    display:block;
+    margin:auto;
+    padding:15px;
+}
+#section3 
+{
+    align-items:center;
+    position:relative;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNO82xWnE-Qc0pv7gEozHxmPl-0OF6G6zimXjBX7oqPnCksx-c&usqp=CAU') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:-1;
+}
+
+   
+
+#section3 .client{
+    
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    
+}
+#section3 h1{
+    font-size:2.5rem;
+    text-align:center;
+}
+
+#section4 h1{
+    font-size:2.5rem;
+    text-align:center;
+    justify-content:center;
+}
+#section4{
+    position:relative;
+}
+#section4::before{
+    content:"";
+    height:100%;
+    width:100%;
+    z-index:-1;
+    position:absolute;
+    background:url('https://cdn.pixabay.com/photo/2019/05/10/13/28/contact-us-4193523__340.jpg') no-repeat center center/cover;
+}
+footer{
+    text-align: center;
+    background:black;
+    color:white;
+    width:100%;
+    padding:3px 20px;
+}
+.contact-box input,textarea{
+    width:100%;
+    padding:10px 7px;
+    font-size:1rem
+}
+.contact-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:3px 5px;
+}
+.contact-box form{
+    width:40%;
+}
+.contact-box label{
+    font-size:1.5rem;
+    padding: 3px 5px;
+}
