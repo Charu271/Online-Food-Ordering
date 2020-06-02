@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        
+        function searchData()
+        {
+            async function getCovidSearch(){
+            const response= await fetch('https://corona-api.com/countries')
+            const da= await response.json();
+            var value= document.getElementById("search").value
+            var arr_length=da.data.length;
+            console.log(arr_length);
+            for(var i=0;i<arr_length;i++)
+            {
+                if(da.data[i].name.toLowerCase()===value.toLowerCase())
+                {
+                    document.getElementById("confirmed").innerHTML=da.data[i].latest_data.confirmed;
+                    //document.getElementById("total").innerHTML=da.data[i].latest_data.;
+                   // document.getElementById("active cases").innerHTML=da.data[i].latest_data.;
+                    document.getElementById("recovered").innerHTML=da.data[i].latest_data.recovered;
+                    document.getElementById("recovery rate").innerHTML=da.data[i].latest_data.calculated.recovery_rate;
+                    document.getElementById("deaths").innerHTML=da.data[i].latest_data.deaths;
+                    document.getElementById("death-rate").innerHTML=da.data[i].latest_data.calculated.death_rate;
+                }
+            }
+            if(i===arr_length)
+            document.getElementById("confirmed").innerHTML="Not found";
+            }
+            getCovidSearch()
+            .then(response=>{
+                console.log(da);
+            })
+            .catch(error=>{
+                console.log("error");
+            });
+            
+            
+            
+          
+        }
+        async function getCovidData()
+        {
+            const response= await fetch('https://api.thevirustracker.com/free-api?global=stats')
+            const data=await response.json();
+            document.getElementById("total").innerHTML=data.results[0].total_cases;
+            document.getElementById("active cases").innerHTML=data.results[0].total_active_cases;
+            //document.getElementById("confirmed").innerHTML=data.results[0];
+            document.getElementById("recovered").innerHTML=data.results[0].total_recovered;
+            //document.getElementById("recovery rate").innerHTML=data.results[0];
+            document.getElementById("deaths").innerHTML=data.results[0].total_deaths;
+            //document.getElementById("death-rate").innerHTML=data.results[0];
+        }
+        getCovidData()
+        .then(response=>{
+            console.log(data);
+        })
+        .catch(error=>{
+            console.log("error");
+        })
+        
+    </script>
+</head>
+<body>
+    <h1>COVID-19 TRACKER</h1>
+    <div>
+        <input type="text" placeholder="search"  id="search">
+        <button onclick="searchData()" type="submit"><img src="https://img.icons8.com/ios-filled/2x/search.png"></button>
+       <h3>Country</h3><span id="country"></span>
+       <h3>Total Cases</h3><span id="total"></span>
+       <h3>Active Cases</h3><span id="active cases"></span>
+       <h3>Confirmed</h3><span id="confirmed"></span>
+       <h3>Recovered</h3><span id="recovered"></span>
+       <h3>Recovery rate</h3><span id="recovery rate"></span>
+       <h3>Deaths</h3><span id="deaths"></span>
+       <h3>Death rate</h3><span id="death-rate"></span>
+    </div>
+</body>
+</html>
